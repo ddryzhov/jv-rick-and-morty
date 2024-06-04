@@ -9,14 +9,15 @@ import org.springframework.stereotype.Service;
 @Service
 public class CharacterService {
     private final CharacterRepository characterRepository;
+    private final Random random;
 
     public CharacterService(CharacterRepository characterRepository) {
         this.characterRepository = characterRepository;
+        this.random = new Random();
     }
 
     public CharacterDto getRandomCharacter() {
         List<CharacterDto> characters = characterRepository.findAll();
-        Random random = new Random();
         return characters.get(random.nextInt(characters.size()));
     }
 
