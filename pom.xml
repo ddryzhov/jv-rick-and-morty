@@ -19,6 +19,7 @@
 		<maven.checkstyle.plugin.configLocation>
 			https://raw.githubusercontent.com/mate-academy/style-guides/master/java/checkstyle.xml
 		</maven.checkstyle.plugin.configLocation>
+		<mapstruct.version>1.5.5.Final</mapstruct.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -69,8 +70,30 @@
 			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
 			<version>2.3.0</version>
 		</dependency>
-	</dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
+        </dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<scope>provided</scope>
+		</dependency>
 
+		<dependency>
+			<groupId>org.mapstruct</groupId>
+			<artifactId>mapstruct</artifactId>
+			<version>1.4.2.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mapstruct</groupId>
+			<artifactId>mapstruct-processor</artifactId>
+			<version>1.4.2.Final</version>
+			<scope>provided</scope>
+		</dependency>
+
+	</dependencies>
 	<build>
 		<plugins>
 			<plugin>
@@ -91,6 +114,7 @@
 				</executions>
 				<configuration>
 					<configLocation>${maven.checkstyle.plugin.configLocation}</configLocation>
+					<suppressionsLocation>checkstyle-suppressions.xml</suppressionsLocation>
 					<consoleOutput>true</consoleOutput>
 					<failsOnError>true</failsOnError>
 					<linkXRef>false</linkXRef>
